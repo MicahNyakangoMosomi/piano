@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.piano-container {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  height: 57vh;
+  border: 10px solid #000634;
+  border-radius: 1rem;
+  margin: 0 auto;
+  margin-top: 8rem;
+  position: relative;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: calc(100% / 21); /* Ensures that the keys take up evenly the container width */
+  margin-right: 1px;
+}
+
+.white-key {
+  position: relative;
+  background-color: white;
+  height: 100%;
+  border: 3px solid #000634;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 2px 2px 10px 0px rgb(128, 126, 126);
+  transition: transform 0.2s ease;
+  transform-origin: bottom;
+}
+
+
+
+.black-key {
+  position: absolute;
+  top: 0;
+  left: 76%;
+  background: linear-gradient(180deg, rgba(36, 32, 30, 1) 26%, rgb(15, 153, 218) 86%);
+  height: 60%;
+  width: 60%;
+  z-index: 1;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 2px 2px 10px 0px rgb(128, 126, 126);
+  transition: transform 0.2s ease;
+}
+
+.black-key:active {
+  z-index: 100;
+}
+
+.black-key:active {
+  background: linear-gradient(180deg, rgba(36, 32, 30, 1) 26%, rgb(164, 164, 164) 86%);
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  .piano-container {
+    flex-direction: column; /* Change to column direction */
+    height: 90vh; /* Adjust height for small screens */
+    width: 57vw; /* Adjust width for small screens */
+    padding-top: 5rem; /* Adjust padding for small screens */
+    margin-top: 0;
+  }
+  .white-key {
+    position: relative;
+    background-color: white;
+    border: 3px solid #000634;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 2px 2px 10px 0px rgb(128, 126, 126);
+    transition: transform 0.2s ease;
+    transform-origin: bottom;
+  }
+
+
+  .key {
+    width: 100%; /* Each key takes full width */
+    height: calc(100% / 21); /* Adjust height for each key */
+    margin-bottom: 1px; /* Add space between keys vertically */
+  }
+
+  .black-key {
+    width: 40%; /* Adjust width for better fit */
+    height: 60%; /* Adjust height for better fit */
+    left:60%; /* Adjust position for better fit */
+    top: 84%;
+    border:none ;
+    border-radius:none;
+    
+  }
+}
