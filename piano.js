@@ -56,7 +56,7 @@ document.querySelectorAll('.white-key').forEach(key => {
         } else {
             event.target.classList.add('active-white');
             setTimeout(() => {
-                event.target.classList.remove('active-white'); // Corrected classList typo
+                event.target.classList.remove('active-white'); 
             }, 100);
 
             console.log('WHITE'); 
