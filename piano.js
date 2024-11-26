@@ -39,18 +39,16 @@ const blackKeyToSound = {
     black14: 'tune/piano Gb(3).mp3'
 };
 
-// Looping through each element with the class 'white-key'
-// Add event listeners for black keys
 document.querySelectorAll('.black-key').forEach(key => {
     key.addEventListener('click', (event) => {
         event.stopPropagation(); // Prevent propagation to white key
-        console.log(`BLACK KEY CLICKED: ${key.id}`); // Debugging
+        console.log(`BLACK KEY CLICKED: ${key.id}`); 
         const soundUrl = blackKeyToSound[key.id]; // Match id with sound
         if (soundUrl) {
             const audio = new Audio(soundUrl);
-            audio.play();
+            audio.play(); //plays the audio
         } else {
-            console.log('No sound found for this key'); // Debugging
+            console.log('No sound found for this key'); 
         }
     });
 });
@@ -61,9 +59,9 @@ document.querySelectorAll('.white-key').forEach(key => {
     key.addEventListener('click', (event) => {
         const soundUrl = whiteKeyToSound[key.id];
         if (soundUrl) {
-            key.classList.add('active-white');
+            key.classList.add('active-white');  //adds a class active-white
             setTimeout(() => {
-                key.classList.remove('active-white');
+                key.classList.remove('active-white'); //removes the class active-white after 200miliseconds
             }, 200);
             const audio = new Audio(soundUrl);
             audio.play();

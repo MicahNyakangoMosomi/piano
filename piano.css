@@ -74,10 +74,10 @@
 /* Media Query for Small Screens */
 @media (max-width: 768px) {
   .piano-container {
-    flex-direction: column; /* Change to column direction */
-    height: 90vh; /* Adjust height for small screens */
-    width: 57vw; /* Adjust width for small screens */
-    padding: 2rem; /* Adjust padding for small screens */
+    flex-direction: column; 
+    height: 90vh; 
+    width: 57vw; 
+    padding: 2rem; 
     margin-top: 0;
   }
   .white-key {
@@ -93,8 +93,8 @@
 
   .key {
     width: 100%; /* Each key takes full width */
-    height: calc(100% / 21); /* Adjust height for each key */
-    margin-bottom: 1px; /* Add space between keys vertically */
+    height: calc(100% / 21); 
+    margin-bottom: 1px; 
   }
 
   .black-key {
