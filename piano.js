@@ -23,48 +23,50 @@ const whiteKeyToSound = {
 };
 
 const blackKeyToSound = {
-    black1: 'tune/piano C#(1).mp3',
-    black2: 'tune/piano D#(1).mp3',
-    black3: 'tune/piano F#(1).mp3',
-    black4: 'tune/piano G#(1).mp3',
-    black5: 'tune/piano A#(1).mp3',
-    black6: 'tune/piano C#(2).mp3',
-    black7: 'tune/piano D#(2).mp3',
-    black8: 'tune/piano F#(2).mp3',
-    black9: 'tune/piano G#(2).mp3',
-    black10: 'tune/piano A#(2).mp3',
-    black11: 'tune/piano C#(3).mp3',
-    black12: 'tune/piano D#(3).mp3',
-    black13: 'tune/piano F#(3).mp3',
-    black14: 'tune/piano G#(3).mp3'
+    black1: 'tune/piano Cb(1).mp3',
+    black2: 'tune/piano Db(1).mp3',
+    black3: 'tune/piano Fb(1).mp3',
+    black4: 'tune/piano Gb(1).mp3',
+    black5: 'tune/piano Ab(1).mp3',
+    black6: 'tune/piano Cb(2).mp3',
+    black7: 'tune/piano Db(2).mp3',
+    black8: 'tune/piano Fb(2).mp3',
+    black9: 'tune/piano Db(3).mp3',
+    black10: 'tune/piano Ab(2).mp3',
+    black11: 'tune/piano Cb(3).mp3',
+    black12: 'tune/piano Db(3).mp3',
+    black13: 'tune/piano Fb(3).mp3',
+    black14: 'tune/piano Gb(3).mp3'
 };
 
 // Looping through each element with the class 'white-key'
-document.querySelectorAll('.white-key').forEach(key => {
-    console.log(key.id);  // key.id fetches the id name of the current element
-
-    // Adding a 'click' event listener to each white key
+// Add event listeners for black keys
+document.querySelectorAll('.black-key').forEach(key => {
     key.addEventListener('click', (event) => {
-        if (event.target.classList.contains('black-key')) {
-            event.stopPropagation(); // Prevents the click from propagating to the white key
-            console.log('BLACK'); 
-            const soundUrl = blackKeyToSound[event.target.id]; // Get the black key sound URL
-            if (soundUrl) {
-                const audio = new Audio(soundUrl); // Creates a new audio object
-                audio.play(); // Plays the audio
-            }
+        event.stopPropagation(); // Prevent propagation to white key
+        console.log(`BLACK KEY CLICKED: ${key.id}`); // Debugging
+        const soundUrl = blackKeyToSound[key.id]; // Match id with sound
+        if (soundUrl) {
+            const audio = new Audio(soundUrl);
+            audio.play();
         } else {
-            event.target.classList.add('active-white');
-            setTimeout(() => {
-                event.target.classList.remove('active-white'); 
-            }, 100);
+            console.log('No sound found for this key'); // Debugging
+        }
+    });
+});
 
-            console.log('WHITE'); 
-            const soundUrl = whiteKeyToSound[key.id]; // Get the white key sound URL
-            if (soundUrl) {
-                const audio = new Audio(soundUrl); // Create and play the audio
-                audio.play(); // Plays the audio
-            }
+
+// Add event listeners for white keys
+document.querySelectorAll('.white-key').forEach(key => {
+    key.addEventListener('click', (event) => {
+        const soundUrl = whiteKeyToSound[key.id];
+        if (soundUrl) {
+            key.classList.add('active-white');
+            setTimeout(() => {
+                key.classList.remove('active-white');
+            }, 200);
+            const audio = new Audio(soundUrl);
+            audio.play();
         }
     });
 });
